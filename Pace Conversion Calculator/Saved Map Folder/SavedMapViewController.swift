@@ -19,6 +19,7 @@ class SavedMapViewController: UIViewController, CLLocationManagerDelegate, MKMap
     var index = Int()
     var indexArray = [Int]()
     var DateAndTime = dateAndTime()
+    var longitudeLatitudeArray = [String: [[String]]]()
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
@@ -51,9 +52,18 @@ class SavedMapViewController: UIViewController, CLLocationManagerDelegate, MKMap
         mapView.mapType = MKMapType(rawValue: 0)!
         if distance != nil {
             distanceLabel.text = distance
-            for index in areaArray.keys {
-                let polyline = MKPolyline(coordinates: areaCoordinate[index]!, count: areaCoordinate[index]!.count)
+            var locationCoordinates = [CLLocationCoordinate2D]()
+            for index in longitudeLatitudeArray.keys {
+                for subIndex in longitudeLatitudeArray[index]!.indices {
+                    if let array = longitudeLatitudeArray[index] {
+                        let latitude = CLLocationDegrees(array[subIndex][0])
+                        let longitude = CLLocationDegrees(array[subIndex][1])
+                        locationCoordinates.append(CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!))
+                    }
+                }
+                let polyline = MKPolyline(coordinates: locationCoordinates, count: locationCoordinates.count)
                 mapView.addOverlay(polyline)
+                locationCoordinates.removeAll()
             }
             var coordinates = [CLLocationCoordinate2D]()
             for index in areaCoordinate.keys {

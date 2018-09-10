@@ -17,7 +17,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var automaticModel = mapModel().automaticModel
     var manualModel = mapModel().manualModel
     var recordingOption = recordingOptions.automatic
-    
+    var longitudeLatitudeArray = [String: [[String]]]()
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if recordingOption == .automatic {
             automaticModel.updateLocation(manager: manager, locations: locations)
@@ -46,6 +46,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 recordingButton.backgroundColor = UIColor.blue
                 recordingButton.setTitle("Save", for: .normal)
             } else {
+                automaticModel.areaCoordinate.keys.forEach( { key in
+                    for index in automaticModel.areaCoordinate[key]!.indices {
+                        let array = automaticModel.areaCoordinate[key]![index]
+                        print(array.latitude)
+                        print(array.longitude)
+                        if let _ = longitudeLatitudeArray[String(key)] {
+                            longitudeLatitudeArray[String(key)]!.append([String(Double(array.latitude)), String(Double(array.longitude))])
+                        } else {
+                            longitudeLatitudeArray[String(key)] = [[String(Double(array.latitude)), String(Double(array.longitude))]]
+                        }
+                    }
+                })
                 performSegue(withIdentifier: "Map to Saved Map", sender: nil)
             }
         }
@@ -102,6 +114,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 vc.areaCoordinate = automaticModel.areaCoordinate
                 vc.index = automaticModel.index
                 vc.distance = totalDistanceLabel.text ?? "0 miles"
+                vc.longitudeLatitudeArray = longitudeLatitudeArray
             }
         }
         // Get the new view controller using segue.destination.

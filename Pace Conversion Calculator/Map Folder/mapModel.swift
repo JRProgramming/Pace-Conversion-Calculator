@@ -24,12 +24,13 @@ class mapModel {
             }
         }
         var oldLocation: CLLocation?
+        
         func updateLocation(manager: CLLocationManager, locations: [CLLocation]) {
             drawMap = false
             if let location = manager.location {
                 if isRecording {
                     if let _ = areaCoordinate[index], let _ = areaArray[index], location.speed >= 1 && location.speed < 10, let oldLocation = oldLocation, location.distance(from: oldLocation) <= 10 {
-                        areaCoordinate[index]!.append(manager.location!.coordinate)
+                        areaCoordinate[index]!.append(location.coordinate)
                         areaArray[index]!.append(location)
                         drawMap = true
                     } else if let oldLocation = oldLocation, areaCoordinate[index] == nil || areaArray[index] == nil, location.speed >= 1, location.speed < 10, location.distance(from: oldLocation) <= 10 {
