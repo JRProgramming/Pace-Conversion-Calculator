@@ -20,7 +20,7 @@ class savedWorkoutsViewcontroller: UITableViewController {
     var storedSingleTimeArray = UserDefaults.standard.object(forKey: "SingleTime") as? [String] ?? [String]()
     var storedSingleDistanceUnitArray = UserDefaults.standard.object(forKey: "SingleDistanceUnit") as? [String] ?? [String]()
     var storedSingleDateArray = UserDefaults.standard.object(forKey: "SingleDate") as? [[String]] ?? [[String]]()
-    var areaTripleArray = UserDefaults.standard.object(forKey: "areaArray") as? [[[CLLocation]]] ?? [[[CLLocation]]]()
+    var areaArray = UserDefaults.standard.object(forKey: "areaArray") as? [String: [[String]]] ?? [String: [[String]]]()
     var storedMapDistanceArray = UserDefaults.standard.object(forKey: "mapDistance") as? [String] ?? [String]()
     var storedMapDateArray = UserDefaults.standard.object(forKey: "mapDate") as? [[String]] ?? [[String]]()
     var dateAndTimeArray = [dateAndTime]()
@@ -102,10 +102,10 @@ class savedWorkoutsViewcontroller: UITableViewController {
                 if storedMapDateArray[index][1] == time && storedMapDateArray[index][0] == date {
                     storedMapDateArray.remove(at: index)
                     storedMapDistanceArray.remove(at: index)
-                    areaTripleArray.remove(at: index)
-                    UserDefaults.standard.set(areaTripleArray, forKey: "areaArray")
-                    UserDefaults.standard.set(storedMapDistanceArray, forKey: "mapDistanceArray")
-                    UserDefaults.standard.set(storedMapDateArray, forKey: "mapDateArray")
+                    areaArray.removeValue(forKey: "\(index)")
+                    UserDefaults.standard.set(areaArray, forKey: "areaArray")
+                    UserDefaults.standard.set(storedMapDistanceArray, forKey: "mapDistance")
+                    UserDefaults.standard.set(storedMapDateArray, forKey: "mapDate")
                 }
                 index += 1
             }
@@ -141,7 +141,8 @@ class savedWorkoutsViewcontroller: UITableViewController {
         for index in storedMapDateArray.indices {
             gatherDateAndTime(row: indexPath.row)
             if storedMapDateArray[index][1] == time && storedMapDateArray[index][0] == date {
-                cell.textLabel?.text = "Map Workout #\(index + 1) (\(storedMapDateArray[index][0])"
+                cell.textLabel?.text = "Map Workout #\(index + 1) (\(storedMapDateArray[index][0]))"
+                cell.detailTextLabel?.text = "\(storedMapDistanceArray[index])"
             }
         }
         return cell

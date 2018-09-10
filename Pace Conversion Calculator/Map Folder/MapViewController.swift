@@ -49,9 +49,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 automaticModel.areaCoordinate.keys.forEach( { key in
                     for index in automaticModel.areaCoordinate[key]!.indices {
                         let array = automaticModel.areaCoordinate[key]![index]
-                        print(array.latitude)
-                        print(array.longitude)
-                        if let _ = longitudeLatitudeArray[String(key)] {
+                        if longitudeLatitudeArray[String(key)] != nil {
                             longitudeLatitudeArray[String(key)]!.append([String(Double(array.latitude)), String(Double(array.longitude))])
                         } else {
                             longitudeLatitudeArray[String(key)] = [[String(Double(array.latitude)), String(Double(array.longitude))]]

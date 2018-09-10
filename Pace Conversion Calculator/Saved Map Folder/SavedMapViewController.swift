@@ -27,70 +27,63 @@ class SavedMapViewController: UIViewController, CLLocationManagerDelegate, MKMap
         saveMap()
     }
     func saveMap() {
-        var areaTripleArray = UserDefaults.standard.object(forKey: "areaArray") as? [[[CLLocation]]] ?? [[[CLLocation]]]()
+        var areaArray = UserDefaults.standard.object(forKey: "areaArray") as? [[String: [[String]]]] ?? [[String: [[String]]]]()
         var mapDistance = UserDefaults.standard.object(forKey: "mapDistance") as? [String] ?? [String]()
         var mapDate = UserDefaults.standard.object(forKey: "mapDate") as? [[String]] ?? [[String]]()
-        var areaDoubleArray = [[CLLocation]]()
-        for index in 0..<areaArray.count {
-            areaDoubleArray.append(areaArray[index] ?? [])
-        }
-        areaTripleArray.append(areaDoubleArray)
         mapDistance.append(distance!)
         let date = DateAndTime.stringDate
         let time = DateAndTime.stringTime
         mapDate.append([date, time])
-        UserDefaults.standard.set(areaTripleArray, forKey: "areaArray")
-        UserDefaults.standard.set(distance, forKey: "mapDistanceArray")
-        UserDefaults.standard.set(mapDate, forKey: "mapDateArray")
+        areaArray.append(longitudeLatitudeArray)
+        UserDefaults.standard.set(areaArray, forKey: "areaArray")
+        UserDefaults.standard.set(mapDistance, forKey: "mapDistance")
+        UserDefaults.standard.set(mapDate, forKey: "mapDate")
         performSegue(withIdentifier: "Saved Map to Saved Workouts", sender: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         mapView.delegate = self
         mapView.mapType = MKMapType(rawValue: 0)!
         if distance != nil {
             distanceLabel.text = distance
             var locationCoordinates = [CLLocationCoordinate2D]()
+            var regionCoordinates = [CLLocationCoordinate2D]()
             for index in longitudeLatitudeArray.keys {
                 for subIndex in longitudeLatitudeArray[index]!.indices {
                     if let array = longitudeLatitudeArray[index] {
                         let latitude = CLLocationDegrees(array[subIndex][0])
                         let longitude = CLLocationDegrees(array[subIndex][1])
                         locationCoordinates.append(CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!))
+                        regionCoordinates.append(CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!))
                     }
                 }
                 let polyline = MKPolyline(coordinates: locationCoordinates, count: locationCoordinates.count)
                 mapView.addOverlay(polyline)
                 locationCoordinates.removeAll()
             }
-            var coordinates = [CLLocationCoordinate2D]()
-            for index in areaCoordinate.keys {
-                coordinates += (areaCoordinate[index]!)
-            }
-            let region = MKCoordinateRegion(coordinates: coordinates)
+            let region = MKCoordinateRegion(coordinates: regionCoordinates)
             mapView.setRegion(region, animated: true)
         } else {
-            var areaTripleArray = UserDefaults.standard.object(forKey: "areaArray") as? [[[CLLocation]]] ?? [[[CLLocation]]]()
+            var areaArray = UserDefaults.standard.object(forKey: "areaArray") as? [[String: [[String]]]] ?? [[String: [[String]]]]()
             var mapDistance = UserDefaults.standard.object(forKey: "mapDistance") as? [String] ?? [String]()
             distanceLabel.text = mapDistance[index]
-            var coordinatesArray = [CLLocationCoordinate2D]()
-            for headIndex in areaTripleArray[index].indices {
-                for subIndex in areaTripleArray[index][headIndex].indices {
-                    coordinatesArray.append(areaTripleArray[index][headIndex][subIndex].coordinate)
+            var locationCoordinates = [CLLocationCoordinate2D]()
+            var regionCoordinates = [CLLocationCoordinate2D]()
+            for headIndex in areaArray[index].keys {
+                for subIndex in areaArray[index][headIndex]!.indices {
+                    if let array = areaArray[index][headIndex] {
+                        let latitude = CLLocationDegrees(array[subIndex][0])
+                        let longitude = CLLocationDegrees(array[subIndex][1])
+                        locationCoordinates.append(CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!))
+                        regionCoordinates.append(CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!))
+                    }
                 }
-                let polyline = MKPolyline(coordinates: coordinatesArray, count: coordinatesArray.count)
+                let polyline = MKPolyline(coordinates: locationCoordinates, count: locationCoordinates.count)
                 mapView.addOverlay(polyline)
-                coordinatesArray = []
+                locationCoordinates.removeAll()
             }
-            var coordinates = [CLLocationCoordinate2D]()
-            for headIndex in areaTripleArray[index].indices {
-                for subIndex in areaTripleArray[headIndex].indices {
-                    coordinates.append((areaArray[headIndex]?[subIndex].coordinate)!)
-                }
-            }
-            let region = MKCoordinateRegion(coordinates: coordinates)
+            let region = MKCoordinateRegion(coordinates: regionCoordinates)
             mapView.setRegion(region, animated: true)
         }
         // Do any additional setup after loading the view.
