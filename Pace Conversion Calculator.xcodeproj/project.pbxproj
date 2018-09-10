@@ -1,0 +1,551 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C1EB5E3213334C800DCC976 /* IntervalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1EB5E2213334C800DCC976 /* IntervalViewController.swift */; };
+		2C298EB621307FB900C6B424 /* SecondsConversionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C298EB521307FB900C6B424 /* SecondsConversionController.swift */; };
+		2C298EB821307FCE00C6B424 /* SecondsConversionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C298EB721307FCE00C6B424 /* SecondsConversionModel.swift */; };
+		2C2C33042130534000A016AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C33032130534000A016AE /* AppDelegate.swift */; };
+		2C2C33062130534000A016AE /* DistanceConversionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C33052130534000A016AE /* DistanceConversionController.swift */; };
+		2C2C33092130534000A016AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C33072130534000A016AE /* Main.storyboard */; };
+		2C2C330B2130534100A016AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C330A2130534100A016AE /* Assets.xcassets */; };
+		2C2C330E2130534100A016AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C2C330C2130534100A016AE /* LaunchScreen.storyboard */; };
+		2C2C331621306B8B00A016AE /* DistanceConversionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C331521306B8B00A016AE /* DistanceConversionModel.swift */; };
+		2C3A0E39213253BB008FC32F /* distanceUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A0E38213253BB008FC32F /* distanceUnit.swift */; };
+		2C3A0E3B21325856008FC32F /* cleanUpTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A0E3A21325856008FC32F /* cleanUpTime.swift */; };
+		2C3A0E3D21325B66008FC32F /* recordWorkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A0E3C21325B66008FC32F /* recordWorkout.swift */; };
+		2C3BF3C72144247B00123AD1 /* SavedMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BF3C62144247B00123AD1 /* SavedMapViewController.swift */; };
+		2C3BF3C92144248900123AD1 /* SavedMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3BF3C82144248900123AD1 /* SavedMapModel.swift */; };
+		2C6D0B532130B15700104C28 /* RecordIntervalWorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6D0B522130B15700104C28 /* RecordIntervalWorkoutController.swift */; };
+		2C8AC63B21373CDA00E0223E /* savedWorkoutsViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8AC63A21373CDA00E0223E /* savedWorkoutsViewcontroller.swift */; };
+		2C8AC63D21373DDE00E0223E /* findDateAndTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8AC63C21373DDE00E0223E /* findDateAndTime.swift */; };
+		2C90B256213AED83005B21CD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C90B255213AED83005B21CD /* MapViewController.swift */; };
+		2C90B25B213AF2D4005B21CD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C90B25A213AF2D3005B21CD /* CoreLocation.framework */; };
+		2C91DA302146ABDC005152AD /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C91DA2F2146ABDC005152AD /* ImageViewController.swift */; };
+		2C9F823F2135EA6C0019E1AA /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F823E2135EA6C0019E1AA /* SettingsTableViewController.swift */; };
+		2CA5E8E72144CC57006CE260 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5E8E52144CC57006CE260 /* CoreData.xcdatamodeld */; };
+		2CB7DD04213F5441009DC3D7 /* mapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB7DD03213F5441009DC3D7 /* mapModel.swift */; };
+		2CC6E1EA2130E0DC0083E98D /* RaceConversionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6E1E92130E0DC0083E98D /* RaceConversionController.swift */; };
+		2CC6E1EC2130E10E0083E98D /* RaceConversionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6E1EB2130E10E0083E98D /* RaceConversionModel.swift */; };
+		2CDBF6E1213C216900C1364F /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDBF6E0213C216900C1364F /* CameraViewController.swift */; };
+		2CE2E6FC213359EA00EADD27 /* IntervalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE2E6FB213359EA00EADD27 /* IntervalViewModel.swift */; };
+		2CF0C5E92132E0B2005BA0C4 /* RecordSingleRunWorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF0C5E82132E0B2005BA0C4 /* RecordSingleRunWorkoutController.swift */; };
+		2CF0C5EC2132E141005BA0C4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF0C5EB2132E141005BA0C4 /* HomeViewController.swift */; };
+		2CF0C5F0213303CB005BA0C4 /* SingleRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF0C5EF213303CB005BA0C4 /* SingleRunViewController.swift */; };
+		2CF0C5F2213308DD005BA0C4 /* SingleRunModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF0C5F1213308DD005BA0C4 /* SingleRunModel.swift */; };
+		2CF979CB2136F72B00459D11 /* timePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF979CA2136F72B00459D11 /* timePickerView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2C1EB5E2213334C800DCC976 /* IntervalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalViewController.swift; sourceTree = "<group>"; };
+		2C298EB521307FB900C6B424 /* SecondsConversionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondsConversionController.swift; sourceTree = "<group>"; };
+		2C298EB721307FCE00C6B424 /* SecondsConversionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondsConversionModel.swift; sourceTree = "<group>"; };
+		2C2C33002130534000A016AE /* Pace Conversion Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pace Conversion Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C2C33032130534000A016AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2C2C33052130534000A016AE /* DistanceConversionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceConversionController.swift; sourceTree = "<group>"; };
+		2C2C33082130534000A016AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2C2C330A2130534100A016AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2C2C330D2130534100A016AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2C2C330F2130534100A016AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C2C331521306B8B00A016AE /* DistanceConversionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceConversionModel.swift; sourceTree = "<group>"; };
+		2C3A0E38213253BB008FC32F /* distanceUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = distanceUnit.swift; sourceTree = "<group>"; };
+		2C3A0E3A21325856008FC32F /* cleanUpTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cleanUpTime.swift; sourceTree = "<group>"; };
+		2C3A0E3C21325B66008FC32F /* recordWorkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recordWorkout.swift; sourceTree = "<group>"; };
+		2C3BF3C62144247B00123AD1 /* SavedMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMapViewController.swift; sourceTree = "<group>"; };
+		2C3BF3C82144248900123AD1 /* SavedMapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedMapModel.swift; sourceTree = "<group>"; };
+		2C6D0B522130B15700104C28 /* RecordIntervalWorkoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordIntervalWorkoutController.swift; sourceTree = "<group>"; };
+		2C8AC63A21373CDA00E0223E /* savedWorkoutsViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = savedWorkoutsViewcontroller.swift; sourceTree = "<group>"; };
+		2C8AC63C21373DDE00E0223E /* findDateAndTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = findDateAndTime.swift; sourceTree = "<group>"; };
+		2C90B255213AED83005B21CD /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		2C90B25A213AF2D3005B21CD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		2C91DA2F2146ABDC005152AD /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		2C9F823E2135EA6C0019E1AA /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		2CA5E8E62144CC57006CE260 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		2CB7DD03213F5441009DC3D7 /* mapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapModel.swift; sourceTree = "<group>"; };
+		2CC6E1E92130E0DC0083E98D /* RaceConversionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceConversionController.swift; sourceTree = "<group>"; };
+		2CC6E1EB2130E10E0083E98D /* RaceConversionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceConversionModel.swift; sourceTree = "<group>"; };
+		2CDBF6E0213C216900C1364F /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		2CE2E6FB213359EA00EADD27 /* IntervalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntervalViewModel.swift; sourceTree = "<group>"; };
+		2CF0C5E82132E0B2005BA0C4 /* RecordSingleRunWorkoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSingleRunWorkoutController.swift; sourceTree = "<group>"; };
+		2CF0C5EB2132E141005BA0C4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; usesTabs = 0; };
+		2CF0C5EF213303CB005BA0C4 /* SingleRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRunViewController.swift; sourceTree = "<group>"; };
+		2CF0C5F1213308DD005BA0C4 /* SingleRunModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleRunModel.swift; sourceTree = "<group>"; };
+		2CF979CA2136F72B00459D11 /* timePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timePickerView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2C2C32FD2130534000A016AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C90B25B213AF2D4005B21CD /* CoreLocation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2C298EB421307F6000C6B424 /* Distance Conversion Folder */ = {
+			isa = PBXGroup;
+			children = (
+				2C2C33052130534000A016AE /* DistanceConversionController.swift */,
+				2C2C331521306B8B00A016AE /* DistanceConversionModel.swift */,
+			);
+			path = "Distance Conversion Folder";
+			sourceTree = "<group>";
+		};
+		2C298EB921307FD300C6B424 /* Seconds Conversion Folder */ = {
+			isa = PBXGroup;
+			children = (
+				2C298EB521307FB900C6B424 /* SecondsConversionController.swift */,
+				2C298EB721307FCE00C6B424 /* SecondsConversionModel.swift */,
+			);
+			path = "Seconds Conversion Folder";
+			sourceTree = "<group>";
+		};
+		2C298EBA21307FE700C6B424 /* Supporting Folder */ = {
+			isa = PBXGroup;
+			children = (
+				2C2C33032130534000A016AE /* AppDelegate.swift */,
+				2C2C330C2130534100A016AE /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Folder";
+			sourceTree = "<group>";
+		};
+		2C2C32F72130534000A016AE = {
+			isa = PBXGroup;
+			children = (
+				2C2C33022130534000A016AE /* Pace Conversion Calculator */,
+				2C2C33012130534000A016AE /* Products */,
+				2C90B257213AF2C9005B21CD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2C2C33012130534000A016AE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2C2C33002130534000A016AE /* Pace Conversion Calculator.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2C2C33022130534000A016AE /* Pace Conversion Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				2CC6E1ED2130E1150083E98D /* Race Conversion Folder */,
+				2C298EB921307FD300C6B424 /* Seconds Conversion Folder */,
+				2C298EB421307F6000C6B424 /* Distance Conversion Folder */,
+				2C3A0E3E21325B85008FC32F /* Record Interval Workout */,
+				2CF0C5EA2132E0B7005BA0C4 /* Record Single Run Workout */,
+				2CB7DD05213F545B009DC3D7 /* Map Folder */,
+				2C3BF3CA2144248F00123AD1 /* Saved Map Folder */,
+				2C2C33072130534000A016AE /* Main.storyboard */,
+				2C91DA2F2146ABDC005152AD /* ImageViewController.swift */,
+				2CDBF6E0213C216900C1364F /* CameraViewController.swift */,
+				2C8AC63A21373CDA00E0223E /* savedWorkoutsViewcontroller.swift */,
+				2CF979CA2136F72B00459D11 /* timePickerView.swift */,
+				2C9F823E2135EA6C0019E1AA /* SettingsTableViewController.swift */,
+				2C3A0E3C21325B66008FC32F /* recordWorkout.swift */,
+				2C8AC63C21373DDE00E0223E /* findDateAndTime.swift */,
+				2CF0C5EB2132E141005BA0C4 /* HomeViewController.swift */,
+				2C3A0E3A21325856008FC32F /* cleanUpTime.swift */,
+				2C3A0E38213253BB008FC32F /* distanceUnit.swift */,
+				2CA5E8E52144CC57006CE260 /* CoreData.xcdatamodeld */,
+				2C298EBA21307FE700C6B424 /* Supporting Folder */,
+				2C2C330A2130534100A016AE /* Assets.xcassets */,
+				2C2C330F2130534100A016AE /* Info.plist */,
+			);
+			path = "Pace Conversion Calculator";
+			sourceTree = "<group>";
+		};
+		2C3A0E3E21325B85008FC32F /* Record Interval Workout */ = {
+			isa = PBXGroup;
+			children = (
+				2C6D0B522130B15700104C28 /* RecordIntervalWorkoutController.swift */,
+				2C1EB5E2213334C800DCC976 /* IntervalViewController.swift */,
+				2CE2E6FB213359EA00EADD27 /* IntervalViewModel.swift */,
+			);
+			path = "Record Interval Workout";
+			sourceTree = "<group>";
+		};
+		2C3BF3CA2144248F00123AD1 /* Saved Map Folder */ = {
+			isa = PBXGroup;
+			children = (
+				2C3BF3C62144247B00123AD1 /* SavedMapViewController.swift */,
+				2C3BF3C82144248900123AD1 /* SavedMapModel.swift */,
+			);
+			path = "Saved Map Folder";
+			sourceTree = "<group>";
+		};
+		2C90B257213AF2C9005B21CD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2C90B25A213AF2D3005B21CD /* CoreLocation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2CB7DD05213F545B009DC3D7 /* Map Folder */ = {
+			isa = PBXGroup;
+			children = (
+				2CB7DD03213F5441009DC3D7 /* mapModel.swift */,
+				2C90B255213AED83005B21CD /* MapViewController.swift */,
+			);
+			path = "Map Folder";
+			sourceTree = "<group>";
+		};
+		2CC6E1ED2130E1150083E98D /* Race Conversion Folder */ = {
+			isa = PBXGroup;
+			children = (
+				2CC6E1E92130E0DC0083E98D /* RaceConversionController.swift */,
+				2CC6E1EB2130E10E0083E98D /* RaceConversionModel.swift */,
+			);
+			path = "Race Conversion Folder";
+			sourceTree = "<group>";
+		};
+		2CF0C5EA2132E0B7005BA0C4 /* Record Single Run Workout */ = {
+			isa = PBXGroup;
+			children = (
+				2CF0C5E82132E0B2005BA0C4 /* RecordSingleRunWorkoutController.swift */,
+				2CF0C5EF213303CB005BA0C4 /* SingleRunViewController.swift */,
+				2CF0C5F1213308DD005BA0C4 /* SingleRunModel.swift */,
+			);
+			path = "Record Single Run Workout";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2C2C32FF2130534000A016AE /* Pace Conversion Calculator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C2C33122130534100A016AE /* Build configuration list for PBXNativeTarget "Pace Conversion Calculator" */;
+			buildPhases = (
+				2C2C32FC2130534000A016AE /* Sources */,
+				2C2C32FD2130534000A016AE /* Frameworks */,
+				2C2C32FE2130534000A016AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pace Conversion Calculator";
+			productName = "Pace Conversion Calculator";
+			productReference = 2C2C33002130534000A016AE /* Pace Conversion Calculator.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2C2C32F82130534000A016AE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "Johnny Ramirez";
+				TargetAttributes = {
+					2C2C32FF2130534000A016AE = {
+						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
+							com.apple.HomeKit = {
+								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+							com.apple.WAC = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 2C2C32FB2130534000A016AE /* Build configuration list for PBXProject "Pace Conversion Calculator" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2C2C32F72130534000A016AE;
+			productRefGroup = 2C2C33012130534000A016AE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2C2C32FF2130534000A016AE /* Pace Conversion Calculator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2C2C32FE2130534000A016AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C2C330E2130534100A016AE /* LaunchScreen.storyboard in Resources */,
+				2C2C330B2130534100A016AE /* Assets.xcassets in Resources */,
+				2C2C33092130534000A016AE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2C2C32FC2130534000A016AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CB7DD04213F5441009DC3D7 /* mapModel.swift in Sources */,
+				2CE2E6FC213359EA00EADD27 /* IntervalViewModel.swift in Sources */,
+				2CA5E8E72144CC57006CE260 /* CoreData.xcdatamodeld in Sources */,
+				2C6D0B532130B15700104C28 /* RecordIntervalWorkoutController.swift in Sources */,
+				2C2C33062130534000A016AE /* DistanceConversionController.swift in Sources */,
+				2CDBF6E1213C216900C1364F /* CameraViewController.swift in Sources */,
+				2C3A0E3D21325B66008FC32F /* recordWorkout.swift in Sources */,
+				2CF0C5F2213308DD005BA0C4 /* SingleRunModel.swift in Sources */,
+				2C8AC63D21373DDE00E0223E /* findDateAndTime.swift in Sources */,
+				2C2C331621306B8B00A016AE /* DistanceConversionModel.swift in Sources */,
+				2C91DA302146ABDC005152AD /* ImageViewController.swift in Sources */,
+				2C8AC63B21373CDA00E0223E /* savedWorkoutsViewcontroller.swift in Sources */,
+				2C3BF3C92144248900123AD1 /* SavedMapModel.swift in Sources */,
+				2CF0C5EC2132E141005BA0C4 /* HomeViewController.swift in Sources */,
+				2C1EB5E3213334C800DCC976 /* IntervalViewController.swift in Sources */,
+				2C3A0E39213253BB008FC32F /* distanceUnit.swift in Sources */,
+				2C90B256213AED83005B21CD /* MapViewController.swift in Sources */,
+				2C2C33042130534000A016AE /* AppDelegate.swift in Sources */,
+				2CF0C5E92132E0B2005BA0C4 /* RecordSingleRunWorkoutController.swift in Sources */,
+				2C3BF3C72144247B00123AD1 /* SavedMapViewController.swift in Sources */,
+				2CF979CB2136F72B00459D11 /* timePickerView.swift in Sources */,
+				2CC6E1EA2130E0DC0083E98D /* RaceConversionController.swift in Sources */,
+				2C298EB621307FB900C6B424 /* SecondsConversionController.swift in Sources */,
+				2CC6E1EC2130E10E0083E98D /* RaceConversionModel.swift in Sources */,
+				2C298EB821307FCE00C6B424 /* SecondsConversionModel.swift in Sources */,
+				2CF0C5F0213303CB005BA0C4 /* SingleRunViewController.swift in Sources */,
+				2C3A0E3B21325856008FC32F /* cleanUpTime.swift in Sources */,
+				2C9F823F2135EA6C0019E1AA /* SettingsTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2C2C33072130534000A016AE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C2C33082130534000A016AE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2C2C330C2130534100A016AE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C2C330D2130534100A016AE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2C2C33102130534100A016AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2C2C33112130534100A016AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2C2C33132130534100A016AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R6U5NYHCF6;
+				INFOPLIST_FILE = "Pace Conversion Calculator/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Johnny-Ramirez.Pace-Conversion-Calculator";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2C2C33142130534100A016AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = R6U5NYHCF6;
+				INFOPLIST_FILE = "Pace Conversion Calculator/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Johnny-Ramirez.Pace-Conversion-Calculator";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2C2C32FB2130534000A016AE /* Build configuration list for PBXProject "Pace Conversion Calculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C2C33102130534100A016AE /* Debug */,
+				2C2C33112130534100A016AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C2C33122130534100A016AE /* Build configuration list for PBXNativeTarget "Pace Conversion Calculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C2C33132130534100A016AE /* Debug */,
+				2C2C33142130534100A016AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2CA5E8E52144CC57006CE260 /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2CA5E8E62144CC57006CE260 /* CoreData.xcdatamodel */,
+			);
+			currentVersion = 2CA5E8E62144CC57006CE260 /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2C2C32F82130534000A016AE /* Project object */;
+}
