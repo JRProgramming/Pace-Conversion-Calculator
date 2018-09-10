@@ -59,6 +59,7 @@ class SavedMapViewController: UIViewController, CLLocationManagerDelegate, MKMap
                         let latitude = CLLocationDegrees(array[subIndex][0])
                         let longitude = CLLocationDegrees(array[subIndex][1])
                         locationCoordinates.append(CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!))
+                        
                     }
                 }
                 let polyline = MKPolyline(coordinates: locationCoordinates, count: locationCoordinates.count)
