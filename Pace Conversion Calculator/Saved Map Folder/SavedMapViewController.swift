@@ -44,7 +44,6 @@ class SavedMapViewController: UIViewController, CLLocationManagerDelegate, MKMap
         performSegue(withIdentifier: "Saved Map to Saved Workouts", sender: nil)
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
