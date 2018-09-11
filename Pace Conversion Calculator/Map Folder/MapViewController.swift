@@ -56,6 +56,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 recordingButton.backgroundColor = UIColor.blue
                 recordingButton.setTitle("Save", for: .normal)
             } else {
+                longitudeLatitudeArray.removeAll()
                 automaticModel.areaCoordinate.keys.forEach( { key in
                     for index in automaticModel.areaCoordinate[key]!.indices {
                         let array = automaticModel.areaCoordinate[key]![index]
@@ -126,7 +127,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
 
     @objc func saveMap() {
-        fatalError("You need to set the latitude and longitude array")
+        longitudeLatitudeArray.removeAll()
+        manualModel.areaCoordinate.keys.forEach( { key in
+            for index in manualModel.areaCoordinate[key]!.indices {
+                let array = manualModel.areaCoordinate[key]![index]
+                if longitudeLatitudeArray[String(key)] != nil {
+                longitudeLatitudeArray[String(key)]!.append([String(Double(array.latitude)), String(Double(array.longitude))])
+                } else {
+                    longitudeLatitudeArray[String(key)] = [[String(Double(array.latitude)), String(Double(array.longitude))]]
+                }
+            }
+        })
+        performSegue(withIdentifier: "Map to Saved Map", sender: nil)
     }
  
     // MARK: - Navigation
@@ -145,6 +157,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 vc.areaCoordinate = manualModel.areaCoordinate
                 vc.index = manualModel.index
                 vc.distance = totalDistanceLabel.text ?? "0 miles"
+                vc.longitudeLatitudeArray = longitudeLatitudeArray
             }
         }
         // Get the new view controller using segue.destination.
