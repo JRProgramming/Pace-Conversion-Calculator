@@ -22,10 +22,6 @@ class SavedMapViewController: UIViewController, CLLocationManagerDelegate, MKMap
     var longitudeLatitudeArray = [String: [[String]]]()
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
-    
-    @IBAction func button(_ sender: UIButton) {
-        saveMap()
-    }
     @objc func saveMap() {
         var areaArray = UserDefaults.standard.object(forKey: "areaArray") as? [[String: [[String]]]] ?? [[String: [[String]]]]()
         var mapDistance = UserDefaults.standard.object(forKey: "mapDistance") as? [String] ?? [String]()
