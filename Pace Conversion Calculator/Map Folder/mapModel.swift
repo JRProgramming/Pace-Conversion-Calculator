@@ -71,11 +71,11 @@ class mapModel {
             drawMap = false
             if let location = manager.location {
                 if isRecording {
-                    if let oldLocation = oldLocation, location.distance(from: oldLocation) >= 1, areaCoordinate[index] != nil, areaArray[index] != nil {
+                    if let oldLocation = oldLocation, location.distance(from: oldLocation) >= 3, areaCoordinate[index] != nil, areaArray[index] != nil {
                         areaCoordinate[index]!.append(location.coordinate)
                         areaArray[index]!.append(location)
                         drawMap = true
-                    } else if let oldLocation = oldLocation, areaCoordinate[index] == nil || areaArray[index] == nil, location.distance(from: oldLocation) >= 1 {
+                    } else if let oldLocation = oldLocation, areaCoordinate[index] == nil || areaArray[index] == nil, location.distance(from: oldLocation) >= 3 {
                         areaCoordinate[index] = [location.coordinate]
                         areaArray[index] = [location]
                         drawMap = true

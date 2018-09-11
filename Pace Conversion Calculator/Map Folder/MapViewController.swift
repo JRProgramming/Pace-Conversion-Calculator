@@ -17,7 +17,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var automaticModel = mapModel().automaticModel
     var manualModel = mapModel().manualModel
     var recordingOption = recordingOptions.automatic
-    var longitudeLatitudeArray = [String: [[String]]]()
+    var longitudeLatitudeArray: [String: [[String]]]?
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if recordingOption == .automatic {
             automaticModel.updateLocation(manager: manager, locations: locations)
@@ -56,14 +56,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 recordingButton.backgroundColor = UIColor.blue
                 recordingButton.setTitle("Save", for: .normal)
             } else {
-                longitudeLatitudeArray.removeAll()
+                longitudeLatitudeArray = nil
                 automaticModel.areaCoordinate.keys.forEach( { key in
                     for index in automaticModel.areaCoordinate[key]!.indices {
                         let array = automaticModel.areaCoordinate[key]![index]
-                        if longitudeLatitudeArray[String(key)] != nil {
-                            longitudeLatitudeArray[String(key)]!.append([String(Double(array.latitude)), String(Double(array.longitude))])
+                        if let longLatArray = longitudeLatitudeArray {
+                            if longLatArray[String(key)] != nil {
+                                longitudeLatitudeArray![String(key)]!.append([String(Double(array.latitude)), String(Double(array.longitude))])
+                            } else {
+                                longitudeLatitudeArray![String(key)] = [[String(Double(array.latitude)), String(Double(array.longitude))]]
+                            }
                         } else {
-                            longitudeLatitudeArray[String(key)] = [[String(Double(array.latitude)), String(Double(array.longitude))]]
+                            longitudeLatitudeArray = [String(key): [[String(Double(array.latitude)), String(Double(array.longitude))]]]
                         }
                     }
                 })
@@ -127,14 +131,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
 
     @objc func saveMap() {
-        longitudeLatitudeArray.removeAll()
+        longitudeLatitudeArray = nil
         manualModel.areaCoordinate.keys.forEach( { key in
             for index in manualModel.areaCoordinate[key]!.indices {
                 let array = manualModel.areaCoordinate[key]![index]
-                if longitudeLatitudeArray[String(key)] != nil {
-                longitudeLatitudeArray[String(key)]!.append([String(Double(array.latitude)), String(Double(array.longitude))])
+                if let longLatArray = longitudeLatitudeArray {
+                    if longLatArray[String(key)] != nil {
+                        longitudeLatitudeArray![String(key)]!.append([String(Double(array.latitude)), String(Double(array.longitude))])
+                    } else {
+                        longitudeLatitudeArray![String(key)] = [[String(Double(array.latitude)), String(Double(array.longitude))]]
+                    }
                 } else {
-                    longitudeLatitudeArray[String(key)] = [[String(Double(array.latitude)), String(Double(array.longitude))]]
+                    longitudeLatitudeArray = [String(key): [[String(Double(array.latitude)), String(Double(array.longitude))]]]
                 }
             }
         })
@@ -147,17 +155,29 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Map to Saved Map", let vc = segue.destination as? SavedMapViewController {
             if recordingOption == .automatic {
-                vc.areaArray = automaticModel.areaArray
-                vc.areaCoordinate = automaticModel.areaCoordinate
-                vc.index = automaticModel.index
-                vc.distance = totalDistanceLabel.text ?? "0 miles"
-                vc.longitudeLatitudeArray = longitudeLatitudeArray
+                if let longLatArray = longitudeLatitudeArray {
+                    vc.areaArray = automaticModel.areaArray
+                    vc.areaCoordinate = automaticModel.areaCoordinate
+                    vc.index = automaticModel.index
+                    vc.distance = totalDistanceLabel.text ?? "0 miles"
+                    vc.longitudeLatitudeArray = longLatArray
+                } else {
+                    let alert = UIAlertController(title: "You didn't move at all", message: "No distance was recorded", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+                    present(alert, animated: true, completion: nil)
+                }
             } else {
-                vc.areaArray = manualModel.areaArray
-                vc.areaCoordinate = manualModel.areaCoordinate
-                vc.index = manualModel.index
-                vc.distance = totalDistanceLabel.text ?? "0 miles"
-                vc.longitudeLatitudeArray = longitudeLatitudeArray
+                if let longLatArray = longitudeLatitudeArray {
+                    vc.areaArray = manualModel.areaArray
+                    vc.areaCoordinate = manualModel.areaCoordinate
+                    vc.index = manualModel.index
+                    vc.distance = totalDistanceLabel.text ?? "0 miles"
+                    vc.longitudeLatitudeArray = longLatArray
+                } else {
+                    let alert = UIAlertController(title: "You didn't move at all", message: "No distance was recorded", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
+                    present(alert, animated: true, completion: nil)
+                }
             }
         }
         // Get the new view controller using segue.destination.
