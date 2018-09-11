@@ -17,23 +17,13 @@ class SavedMapViewController: UIViewController, CLLocationManagerDelegate, MKMap
     var areaCoordinate = [Int : [CLLocationCoordinate2D]]()
     var areaArray = [Int : [CLLocation]]()
     var index = Int()
-    var indexArray = [Int]()
     var DateAndTime = dateAndTime()
+    var model = ViewMap()
     var longitudeLatitudeArray = [String: [[String]]]()
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     @objc func saveMap() {
-        var areaArray = UserDefaults.standard.object(forKey: "areaArray") as? [[String: [[String]]]] ?? [[String: [[String]]]]()
-        var mapDistance = UserDefaults.standard.object(forKey: "mapDistance") as? [String] ?? [String]()
-        var mapDate = UserDefaults.standard.object(forKey: "mapDate") as? [[String]] ?? [[String]]()
-        mapDistance.append(distance!)
-        let date = DateAndTime.stringDate
-        let time = DateAndTime.stringTime
-        mapDate.append([date, time])
-        areaArray.append(longitudeLatitudeArray)
-        UserDefaults.standard.set(areaArray, forKey: "areaArray")
-        UserDefaults.standard.set(mapDistance, forKey: "mapDistance")
-        UserDefaults.standard.set(mapDate, forKey: "mapDate")
+        model.saveMap(distance: distance, longitudeAndLatitude: longitudeLatitudeArray)
         performSegue(withIdentifier: "Saved Map to Saved Workouts", sender: nil)
     }
     
@@ -102,75 +92,4 @@ class SavedMapViewController: UIViewController, CLLocationManagerDelegate, MKMap
     }
     */
 
-}
-extension UserDefaults {
-    
-    func set(location:[[[CLLocation]]], forKey key: String){
-        var latitudeArray = [[[Int]]]()
-        var longitudeArray = [[[Int]]]()
-        var firstLatArray = [Int]()
-        var secondLatArray = [[Int]]()
-        var firstLongArray = [Int]()
-        var secondLongArray = [[Int]]()
-        for firstIndex in location.indices {
-            for secondIndex in location[firstIndex].indices {
-                for thirdIndex in location[firstIndex][secondIndex].indices {
-                    let locationLat = NSNumber(value:location[firstIndex][secondIndex][thirdIndex].coordinate.latitude)
-                    firstLatArray.append(Int(truncating: locationLat))
-                    let locationLon = NSNumber(value:location[firstIndex][secondIndex][thirdIndex].coordinate.longitude)
-                    firstLongArray.append(Int(truncating: locationLon))
-                }
-                secondLatArray.append(firstLatArray)
-                secondLongArray.append(firstLongArray)
-            }
-            latitudeArray.append(secondLatArray)
-            longitudeArray.append(secondLongArray)
-        }
-        self.set(["lat": latitudeArray, "lon": longitudeArray], forKey:key)
-    }
-    
-    func location(forKey key: String) -> CLLocation?
-    {
-        if let locationDictionary = self.object(forKey: key) as? Dictionary<String,NSNumber> {
-            let locationLat = locationDictionary["lat"]!.doubleValue
-            let locationLon = locationDictionary["lon"]!.doubleValue
-            return CLLocation(latitude: locationLat, longitude: locationLon)
-        }
-        return nil
-    }
-}
-
-extension MKCoordinateRegion {
-    
-    init(coordinates: [CLLocationCoordinate2D]) {
-        var minLatitude: CLLocationDegrees = 90.0
-        var maxLatitude: CLLocationDegrees = -90.0
-        var minLongitude: CLLocationDegrees = 180.0
-        var maxLongitude: CLLocationDegrees = -180.0
-        
-        for coordinate in coordinates {
-            let lat = Double(coordinate.latitude)
-            let long = Double(coordinate.longitude)
-            if lat < minLatitude {
-                minLatitude = lat
-            }
-            if long < minLongitude {
-                minLongitude = long
-            }
-            if lat > maxLatitude {
-                maxLatitude = lat
-            }
-            if long > maxLongitude {
-                maxLongitude = long
-            }
-        }
-        maxLatitude += 0.0005
-        minLatitude -= 0.0005
-        maxLongitude += 0.0005
-        minLongitude -= 0.0005
-        
-        let span = MKCoordinateSpan(latitudeDelta: ((maxLatitude - minLatitude)), longitudeDelta: ((maxLongitude - minLongitude)))
-        let center = CLLocationCoordinate2DMake((maxLatitude - span.latitudeDelta / 2), (maxLongitude - span.longitudeDelta / 2))
-        self.init(center: center, span: span)
-    }
 }
