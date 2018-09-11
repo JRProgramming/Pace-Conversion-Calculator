@@ -26,7 +26,6 @@
 		2C8AC63D21373DDE00E0223E /* findDateAndTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8AC63C21373DDE00E0223E /* findDateAndTime.swift */; };
 		2C90B256213AED83005B21CD /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C90B255213AED83005B21CD /* MapViewController.swift */; };
 		2C90B25B213AF2D4005B21CD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C90B25A213AF2D3005B21CD /* CoreLocation.framework */; };
-		2C91DA302146ABDC005152AD /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C91DA2F2146ABDC005152AD /* ImageViewController.swift */; };
 		2C9F823F2135EA6C0019E1AA /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F823E2135EA6C0019E1AA /* SettingsTableViewController.swift */; };
 		2CA5E8E72144CC57006CE260 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5E8E52144CC57006CE260 /* CoreData.xcdatamodeld */; };
 		2CB7DD04213F5441009DC3D7 /* mapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB7DD03213F5441009DC3D7 /* mapModel.swift */; };
@@ -63,7 +62,6 @@
 		2C8AC63C21373DDE00E0223E /* findDateAndTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = findDateAndTime.swift; sourceTree = "<group>"; };
 		2C90B255213AED83005B21CD /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2C90B25A213AF2D3005B21CD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		2C91DA2F2146ABDC005152AD /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		2C9F823E2135EA6C0019E1AA /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		2CA5E8E62144CC57006CE260 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		2CB7DD03213F5441009DC3D7 /* mapModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapModel.swift; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 				2CB7DD05213F545B009DC3D7 /* Map Folder */,
 				2C3BF3CA2144248F00123AD1 /* Saved Map Folder */,
 				2C2C33072130534000A016AE /* Main.storyboard */,
-				2C91DA2F2146ABDC005152AD /* ImageViewController.swift */,
 				2CDBF6E0213C216900C1364F /* CameraViewController.swift */,
 				2C8AC63A21373CDA00E0223E /* savedWorkoutsViewcontroller.swift */,
 				2CF979CA2136F72B00459D11 /* timePickerView.swift */,
@@ -316,7 +313,6 @@
 				2CF0C5F2213308DD005BA0C4 /* SingleRunModel.swift in Sources */,
 				2C8AC63D21373DDE00E0223E /* findDateAndTime.swift in Sources */,
 				2C2C331621306B8B00A016AE /* DistanceConversionModel.swift in Sources */,
-				2C91DA302146ABDC005152AD /* ImageViewController.swift in Sources */,
 				2C8AC63B21373CDA00E0223E /* savedWorkoutsViewcontroller.swift in Sources */,
 				2C3BF3C92144248900123AD1 /* SavedMapModel.swift in Sources */,
 				2CF0C5EC2132E141005BA0C4 /* HomeViewController.swift in Sources */,
