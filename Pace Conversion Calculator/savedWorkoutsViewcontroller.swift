@@ -20,7 +20,7 @@ class savedWorkoutsViewcontroller: UITableViewController {
     var storedSingleTimeArray = UserDefaults.standard.object(forKey: "SingleTime") as? [String] ?? [String]()
     var storedSingleDistanceUnitArray = UserDefaults.standard.object(forKey: "SingleDistanceUnit") as? [String] ?? [String]()
     var storedSingleDateArray = UserDefaults.standard.object(forKey: "SingleDate") as? [[String]] ?? [[String]]()
-    var areaArray = UserDefaults.standard.object(forKey: "areaArray") as? [String: [[String]]] ?? [String: [[String]]]()
+    var areaArray = UserDefaults.standard.object(forKey: "areaArray") as? [[String: [[String]]]] ?? [[String: [[String]]]]()
     var storedMapDistanceArray = UserDefaults.standard.object(forKey: "mapDistance") as? [String] ?? [String]()
     var storedMapDateArray = UserDefaults.standard.object(forKey: "mapDate") as? [[String]] ?? [[String]]()
     var dateAndTimeArray = [dateAndTime]()
@@ -102,7 +102,7 @@ class savedWorkoutsViewcontroller: UITableViewController {
                 if storedMapDateArray[index][1] == time && storedMapDateArray[index][0] == date {
                     storedMapDateArray.remove(at: index)
                     storedMapDistanceArray.remove(at: index)
-                    areaArray.removeValue(forKey: "\(index)")
+                    areaArray.remove(at: index)
                     UserDefaults.standard.set(areaArray, forKey: "areaArray")
                     UserDefaults.standard.set(storedMapDistanceArray, forKey: "mapDistance")
                     UserDefaults.standard.set(storedMapDateArray, forKey: "mapDate")
@@ -128,7 +128,6 @@ class savedWorkoutsViewcontroller: UITableViewController {
             if storedSingleDateArray[index][1] == time && storedSingleDateArray[index][0] == date {
                 cell.textLabel?.text = "Run #\(index + 1) (\(date))"
                 cell.detailTextLabel?.text = "\(storedSingleDistanceArray[index]) \(storedSingleDistanceUnitArray[index])"
-
             }
         }
         for index in storedIntervalDateArray.indices {
