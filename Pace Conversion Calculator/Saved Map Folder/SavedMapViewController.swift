@@ -26,7 +26,7 @@ class SavedMapViewController: UIViewController, CLLocationManagerDelegate, MKMap
     @IBAction func button(_ sender: UIButton) {
         saveMap()
     }
-    func saveMap() {
+    @objc func saveMap() {
         var areaArray = UserDefaults.standard.object(forKey: "areaArray") as? [[String: [[String]]]] ?? [[String: [[String]]]]()
         var mapDistance = UserDefaults.standard.object(forKey: "mapDistance") as? [String] ?? [String]()
         var mapDate = UserDefaults.standard.object(forKey: "mapDate") as? [[String]] ?? [[String]]()
@@ -64,6 +64,7 @@ class SavedMapViewController: UIViewController, CLLocationManagerDelegate, MKMap
             }
             let region = MKCoordinateRegion(coordinates: regionCoordinates)
             mapView.setRegion(region, animated: true)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveMap))
         } else {
             var areaArray = UserDefaults.standard.object(forKey: "areaArray") as? [[String: [[String]]]] ?? [[String: [[String]]]]()
             var mapDistance = UserDefaults.standard.object(forKey: "mapDistance") as? [String] ?? [String]()
