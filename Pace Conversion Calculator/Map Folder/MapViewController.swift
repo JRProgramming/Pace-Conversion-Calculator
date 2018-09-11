@@ -24,6 +24,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             if automaticModel.drawMap {
                 drawMap()
             }
+        } else {
+            manualModel.updateLocation(manager: manager, locations: locations)
+            if manualModel.drawMap {
+                drawMap()
+            }
         }
     }
     
@@ -32,8 +37,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             let polyline = MKPolyline(coordinates: automaticModel.areaCoordinate[automaticModel.index]!, count: automaticModel.areaCoordinate[automaticModel.index]!.count)
             mapView.addOverlay(polyline)
             totalDistanceLabel.text = "\(mapModel().findDistance(area: automaticModel.areaArray, index: automaticModel.index)) \(defaultDistanceUnit)"
-            mapView.userTrackingMode = MKUserTrackingMode(rawValue: 2)!
+        } else {
+            let coordinates = manualModel.areaCoordinate[manualModel.index]!
+            let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
+            mapView.addOverlay(polyline)
+            totalDistanceLabel.text = "\(mapModel().findDistance(area: manualModel.areaArray, index: manualModel.index)) \(defaultDistanceUnit)"
         }
+        mapView.userTrackingMode = MKUserTrackingMode(rawValue: 2)!
     }
     
     @IBOutlet weak var recordingButton: UIButton!
@@ -57,6 +67,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                     }
                 })
                 performSegue(withIdentifier: "Map to Saved Map", sender: nil)
+            }
+        } else {
+            manualModel.isRecording = !manualModel.isRecording
+            if manualModel.isRecording {
+                recordingButton.setTitle("Stop", for: .normal)
+                recordingButton.backgroundColor = UIColor.red
+            } else {
+                recordingButton.setTitle("Go", for: .normal)
+                recordingButton.backgroundColor = UIColor.green
             }
         }
     }
@@ -91,6 +110,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             automaticModel.isRecording = false
             recordingButton.backgroundColor = UIColor.red
             recordingButton.setTitle("Stop", for: .normal)
+        } else {
+            manualModel.isRecording = false
+            recordingButton.backgroundColor = UIColor.green
+            recordingButton.setTitle("Go", for: .normal)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(saveMap))
         }
         //mapview setup to show user location
         mapView.delegate = self
@@ -101,6 +125,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     
 
+    @objc func saveMap() {
+        fatalError("You need to set the latitude and longitude array")
+    }
  
     // MARK: - Navigation
 
@@ -113,6 +140,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 vc.index = automaticModel.index
                 vc.distance = totalDistanceLabel.text ?? "0 miles"
                 vc.longitudeLatitudeArray = longitudeLatitudeArray
+            } else {
+                vc.areaArray = manualModel.areaArray
+                vc.areaCoordinate = manualModel.areaCoordinate
+                vc.index = manualModel.index
+                vc.distance = totalDistanceLabel.text ?? "0 miles"
             }
         }
         // Get the new view controller using segue.destination.

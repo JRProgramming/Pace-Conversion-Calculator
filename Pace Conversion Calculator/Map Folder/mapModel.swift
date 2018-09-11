@@ -56,7 +56,34 @@ class mapModel {
         }
     }
     class manual {
+        var areaCoordinate = [Int : [CLLocationCoordinate2D]]()
+        var areaArray = [Int : [CLLocation]]()
+        var drawMap = false
+        var index = Int()
+        var isRecording = true {
+            didSet {
+                index += 1
+            }
+        }
+        var oldLocation: CLLocation?
         
+        func updateLocation(manager: CLLocationManager, locations: [CLLocation]) {
+            drawMap = false
+            if let location = manager.location {
+                if isRecording {
+                    if let oldLocation = oldLocation, location.distance(from: oldLocation) >= 1, areaCoordinate[index] != nil, areaArray[index] != nil {
+                        areaCoordinate[index]!.append(location.coordinate)
+                        areaArray[index]!.append(location)
+                        drawMap = true
+                    } else if let oldLocation = oldLocation, areaCoordinate[index] == nil || areaArray[index] == nil, location.distance(from: oldLocation) >= 1 {
+                        areaCoordinate[index] = [location.coordinate]
+                        areaArray[index] = [location]
+                        drawMap = true
+                    }
+                }
+                self.oldLocation = manager.location
+            }
+        }
     }
     func findDistance(area areaArray: [Int: [CLLocation]], index: Int) -> String {
         var totalDistance = CLLocationDistance()
