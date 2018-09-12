@@ -146,6 +146,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 }
             }
         })
+        locationManager.stopUpdatingHeading()
+        locationManager.stopUpdatingLocation()
+        manualModel.isRecording = false
         performSegue(withIdentifier: "Map to Saved Map", sender: nil)
     }
  
